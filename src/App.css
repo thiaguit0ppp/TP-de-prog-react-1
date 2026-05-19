@@ -52,18 +52,64 @@ body{
     width: 300px;
 }
 
+.Tarea > h2 , .Tarea > textarea{
+    padding: 0px 10px;
+}
+
 .Tarea > textarea{
     background-color: transparent;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 16px;
+    resize: none;
 }
 
 .TareaPie{
+    padding: 20px 10px;
     flex: 1;
     display: flex;
     justify-content: space-between;
 
     flex-direction: row;
+}
+
+.EstadoTarea{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.EstadoTarea > .Punto{
+    background-color: white;
+    border-radius: 50%;
+
+    width: 25px;
+    height: 25px;
+}
+
+.EstadoTarea > button{
+    all: unset;
+
+    display: flex;
+    gap: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.Dias{
+    display: flex;
+    align-items: center;
+
+    font-weight: bold;
+
+    height: 20px;
+    border-radius: 15px;
+    background-color: red;
+    padding: 5px 20px;
 }
