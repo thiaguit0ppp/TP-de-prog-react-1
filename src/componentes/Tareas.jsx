@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-export default function Tareas(){
-    let [estado, setEstado] = useState(0);
+export default function Tareas({ nombre, descripcion, estadoInicial }){
+    console.log(estadoInicial);
+    let [estado, setEstado] = useState(estadoInicial);
     let [prioridad, setPrioridad] = useState(0);
 
     const cambiarEstado = () => {
@@ -38,8 +39,8 @@ export default function Tareas(){
 
     return (
         <div className="Tarea">
-            <h2>Tarea</h2>
-            <textarea name="tarea" id="tarea" cols="30" rows="10">Descripcionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</textarea>
+            <h2>{nombre}</h2>
+            <textarea name="tarea" id="tarea" cols="30" rows="10">{descripcion}</textarea>
             <div className="TareaPie">
                 <div className="EstadoTarea">
                     <div className="Punto" style={{ backgroundColor: getContenidoBoton("color") }}></div>
