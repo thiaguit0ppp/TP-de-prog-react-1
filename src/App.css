@@ -15,11 +15,18 @@ body{
 
 .SeccionBotones{
     display: flex;
-    gap: 10px;
+    gap: 20px;
     padding: 20px;
+
+    flex-direction: column;
 }
 
-.SeccionBotones > button{
+.Filtros{
+    display: flex;
+    gap: 10px;
+}
+
+.Filtros > button, .Creacion > button{
     display: flex;
     gap: 10px;
 
@@ -52,8 +59,15 @@ body{
     width: 300px;
 }
 
-.Tarea > h2 , .Tarea > textarea{
+.Tarea > textarea{
     padding: 0px 10px;
+}
+
+.Tarea > h2{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 5px;
+    color: #06C4E2;
 }
 
 .Tarea > textarea{
@@ -63,6 +77,12 @@ body{
     border-radius: 5px;
     font-size: 16px;
     resize: none;
+}
+
+.LineaSeparadora{
+    height: 10px;
+    background-color: #5D5D5D;
+    border-radius: 10px;
 }
 
 .TareaPie{
