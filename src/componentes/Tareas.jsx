@@ -40,7 +40,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
     return (
         <div className="Tarea">
             <h2>{nombre}</h2>
-            <textarea name="tarea" id="tarea" cols="30" rows="10">{descripcion}</textarea>
+            <textarea readOnly name="tarea" id="tarea" cols="30" rows="10">{descripcion}</textarea>
             <div className="LineaSeparadora"></div>
             <div className="TareaPie">
                 <div className="EstadoTarea">

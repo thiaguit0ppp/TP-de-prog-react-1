@@ -1,4 +1,4 @@
-export default function SeccionBotones(){
+export default function SeccionBotones({mostrar, f }){
     return (
         <div className="SeccionBotones">
             <div className="Filtros">
@@ -11,18 +11,21 @@ export default function SeccionBotones(){
                 <button>
                     <img src="/img/jardin.png" alt="Jardin" />
                     Jardin</button>
-                <button>
+                <button onClick={!mostrar ? f : undefined}>
                     <img src="/img/todos.png" alt="Todos" />
                     Todos</button>
             </div>
-            <div className="LineaSeparadora"
+            {mostrar && <>
+                <div className="LineaSeparadora"
                 style={{width: '50%'}}
             ></div>
             <div className="Creacion">
-                <button>
+                <button onClick={f}>
                     <img src="/img/crear.png" alt="Crear" />
                     Crear</button>
             </div>
+            </>}
+            
         </div>
     )
 }

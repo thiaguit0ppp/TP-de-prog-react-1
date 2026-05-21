@@ -133,3 +133,51 @@ body{
     background-color: red;
     padding: 5px 20px;
 }
+
+.Formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    width: 400px;
+    
+    color: white;
+    background-color: #393838;
+}
+
+.Formulario > form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Formulario > form > input, .Formulario > form > textarea, .botones > input{
+    background-color: #585858;
+    color: #C4C4C4;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.botones{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.botones > button{
+    all: unset;
+
+
+    border-radius: 5px;
+    color: #3CFD27;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #368511;
+    font-weight: bold;
+}
+
