@@ -59,6 +59,12 @@ body{
     width: 300px;
 }
 
+.TareaHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .Tarea > textarea{
     padding: 0px 10px;
 }
@@ -68,6 +74,18 @@ body{
     font-weight: bold;
     padding: 0px 5px;
     color: #06C4E2;
+}
+
+.TareaHeader > h2{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 5px;
+    color: #06C4E2;
+}
+
+.TipoTarea{
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .Tarea > textarea{
@@ -90,7 +108,6 @@ body{
     flex: 1;
     display: flex;
     justify-content: space-between;
-
     flex-direction: row;
 }
 
@@ -103,14 +120,12 @@ body{
 .EstadoTarea > .Punto{
     background-color: white;
     border-radius: 50%;
-
     width: 25px;
     height: 25px;
 }
 
 .EstadoTarea > button{
     all: unset;
-
     display: flex;
     gap: 10px;
     border: none;
@@ -118,7 +133,6 @@ body{
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-
     font-weight: bold;
 }
 
@@ -171,7 +185,6 @@ body{
 .botones > button{
     all: unset;
 
-
     border-radius: 5px;
     color: #3CFD27;
     cursor: pointer;
@@ -181,3 +194,8 @@ body{
     font-weight: bold;
 }
 
+/* ESTILO BOTÓN CERRAR */
+.cerrar{
+    background-color: #a83232;
+    color: #fff;
+}

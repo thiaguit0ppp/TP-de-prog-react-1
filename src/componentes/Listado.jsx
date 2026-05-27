@@ -11,6 +11,7 @@ export default function Listado({ tareas, modificarEstado }) {
                         nombre={tarea.nombre}
                         descripcion={tarea.descripcion}
                         estadoInicial={parseInt(tarea.estado)}
+                        tipo={tarea.tipo}
                         id={tarea.id}
                         modificarEstado={modificarEstado}
                     />

@@ -60,11 +60,21 @@ export default function App(){
   console.log("estado actualizado:", tareas);
   }, [tareas]);
 
-  return (
+  if(seccionCrear){
+    return (
     <div className="App">
       <h1 style={{color:"#fff"}}>Filtros</h1>
       <SeccionBotones mostrar={seccionCrear} f={cambiarSeccion} />
-      {seccionCrear ? <Listado tareas = {tareas} modificarEstado = {cambiarEstado}/> : <Formulario guardar={guardar}/>}
+      <Listado tareas = {tareas} modificarEstado = {cambiarEstado}/>
     </div>
   )
+  }else{
+    return (
+      <div className="App">
+        <h1 style={{color:"#fff"}}>Crear tarea</h1>
+        <SeccionBotones mostrar={seccionCrear} f={cambiarSeccion} />
+        <Formulario guardar={guardar}/>
+      </div>
+    )
+  }
 }

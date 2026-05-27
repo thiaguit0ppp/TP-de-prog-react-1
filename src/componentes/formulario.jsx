@@ -4,6 +4,7 @@ export default function Formulario({ guardar }) {
     const [nombre, setNombre] = useState("");
     const [estado, setEstado] = useState(0);
     const [descripcion, setDescripcion] = useState("");
+    const [tipo, setTipo] = useState("");
     const [fecha, setFecha] = useState("");
 
     const handlerSubmit = (e) => {
@@ -13,6 +14,7 @@ export default function Formulario({ guardar }) {
             nombre: nombre,
             descripcion: descripcion,
             estado: estado,
+            tipo: tipo,
             fecha: fecha,
             id: (new Date()).getTime()
         }
@@ -51,11 +53,15 @@ export default function Formulario({ guardar }) {
                     <option value="2">Finalizada</option>
                 </select>
 
-                <select name="tipo">
-                    <option value="">Seleccionar tipo</option>
-                    <option value="casa">Casa</option>
-                    <option value="patio">Patio</option>
-                    <option value="trabajo">Trabajo</option>
+                <select
+                    required
+                    onChange={(e) => setTipo(e.target.value)}
+                    value={tipo}
+                >
+                    <option>Seleccionar tipo</option>
+                    <option value="0">Casa</option>
+                    <option value="1">Patio</option>
+                    <option value="2">Trabajo</option>
                 </select>
 
                 <div className="botones">
@@ -65,6 +71,15 @@ export default function Formulario({ guardar }) {
                         onChange={(e) => setFecha(e.target.value)}
                         value={fecha}
                     />
+
+                    <button
+                        type="button"
+                        className="cerrar"
+                        style={{ backgroundColor: "#a83232", color: "#ffffff" }}
+                    >
+                        Cerrar
+                    </button>
+
                     <button type="submit">Crear</button>
                 </div>
             </form>
