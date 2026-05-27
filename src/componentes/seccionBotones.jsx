@@ -10,7 +10,7 @@ export default function SeccionBotones({mostrar, f }){
                     Trabajo</button>
                 <button>
                     <img src="/img/jardin.png" alt="Jardin" />
-                    Jardin</button>
+                    Patio</button>
                 <button onClick={!mostrar ? f : undefined}>
                     <img src="/img/todos.png" alt="Todos" />
                     Todos</button>

@@ -1,19 +1,20 @@
 import { useState } from "react";
 
-export default function Tareas({ nombre, descripcion, estadoInicial }){
-    console.log(estadoInicial);
-    let [estado, setEstado] = useState(parseInt(estadoInicial));
+export default function Tareas({ nombre, descripcion, estadoInicial, id, modificarEstado }){
     let [prioridad, setPrioridad] = useState(0);
-
+    /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
+    estadoInicial= parseInt(estadoInicial);
     const cambiarEstado = () => {
-        console.log(estado);
-        let nuevoEstado = estado==2 ? 0 : estado+1;
-        setEstado(nuevoEstado);
+        let nuevoEstado = estadoInicial==2 ? 0 : estadoInicial+1;
+        console.log("nuevo estado;", nuevoEstado);
+        console.log("id e cambiar estado cuando la llamo ", id);
+        modificarEstado(id, nuevoEstado);
     }
 
     const getContenidoBoton = (dato) => {
+        console.log("hola", dato, "+", estadoInicial)
         if (dato == "color"){
-            switch (estado){
+            switch (estadoInicial){
                 case 0:
                     return "white";
                 case 1:
@@ -23,7 +24,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
             }
         }
         if(dato == "texto"){
-            switch (estado){
+            switch (estadoInicial){
                 case 0:
                     return "Pendiente";
                 case 1:
@@ -32,7 +33,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
                     return "Completada"; 
             }
         }
-        console.error("dato no reconocido:", dato, " estado: ", estado);
+        console.error("dato no reconocido:", dato, " estado: ",typeof estadoInicial, estadoInicial);
     }
 
    
@@ -45,7 +46,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
             <div className="TareaPie">
                 <div className="EstadoTarea">
                     <div className="Punto" style={{ backgroundColor: getContenidoBoton("color") }}></div>
-                    <button style={{color: getContenidoBoton("color")}}onClick={cambiarEstado}>{getContenidoBoton("texto")}</button>
+                    <button style={{color: getContenidoBoton("color")}} onClick={cambiarEstado}>{getContenidoBoton("texto")}</button>
                 </div>
                 <div className="Dias">3 dias</div>
             </div>

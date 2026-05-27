@@ -2,18 +2,19 @@ import { useState } from "react";
 
 export default function Formulario({ guardar }) {
     const [nombre, setNombre] = useState("");
-    const [estado, setEstado] = useState(0)
+    const [estado, setEstado] = useState(0);
     const [descripcion, setDescripcion] = useState("");
     const [fecha, setFecha] = useState("");
 
     const handlerSubmit = (e) => {
         e.preventDefault();
-        console.log("xd");
+
         let tarea = {
             nombre: nombre,
             descripcion: descripcion,
             estado: estado,
-            fecha: fecha
+            fecha: fecha,
+            id: (new Date()).getTime()
         }
 
         console.log(tarea)
@@ -32,8 +33,6 @@ export default function Formulario({ guardar }) {
                 />
 
                 <textarea required
-                    name="descripcion"
-                    id="descripcion"
                     cols="30"
                     rows="10"
                     placeholder="Descripcion de la tarea"
@@ -43,13 +42,20 @@ export default function Formulario({ guardar }) {
 
                 <select
                     required
-                    onChange={ (e) => setEstado(e.target.value) }
+                    onChange={(e) => setEstado(e.target.value)}
                     value={estado}
                 >
                     <option>Estado de la tarea</option>
                     <option value="0">Pendiente</option>
                     <option value="1">En proceso</option>
                     <option value="2">Finalizada</option>
+                </select>
+
+                <select name="tipo">
+                    <option value="">Seleccionar tipo</option>
+                    <option value="casa">Casa</option>
+                    <option value="patio">Patio</option>
+                    <option value="trabajo">Trabajo</option>
                 </select>
 
                 <div className="botones">
