@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Tareas({ nombre, descripcion, estadoInicial }){
     console.log(estadoInicial);
-    let [estado, setEstado] = useState(estadoInicial);
+    let [estado, setEstado] = useState(parseInt(estadoInicial));
     let [prioridad, setPrioridad] = useState(0);
 
     const cambiarEstado = () => {
@@ -14,7 +14,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
     const getContenidoBoton = (dato) => {
         if (dato == "color"){
             switch (estado){
-                    case 0:
+                case 0:
                     return "white";
                 case 1:
                     return "#FFBF4A";
@@ -32,7 +32,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
                     return "Completada"; 
             }
         }
-        console.error("dato no reconocido");
+        console.error("dato no reconocido:", dato, " estado: ", estado);
     }
 
    
@@ -40,7 +40,7 @@ export default function Tareas({ nombre, descripcion, estadoInicial }){
     return (
         <div className="Tarea">
             <h2>{nombre}</h2>
-            <textarea readOnly name="tarea" id="tarea" cols="30" rows="10">{descripcion}</textarea>
+            <textarea readOnly cols="30" rows="10">{descripcion}</textarea>
             <div className="LineaSeparadora"></div>
             <div className="TareaPie">
                 <div className="EstadoTarea">

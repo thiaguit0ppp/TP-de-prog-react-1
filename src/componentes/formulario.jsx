@@ -1,12 +1,64 @@
-export default function Formulario(){
+import { useState } from "react";
+
+export default function Formulario({ guardar }) {
+    const [nombre, setNombre] = useState("");
+    const [estado, setEstado] = useState(0)
+    const [descripcion, setDescripcion] = useState("");
+    const [fecha, setFecha] = useState("");
+
+    const handlerSubmit = (e) => {
+        e.preventDefault();
+        console.log("xd");
+        let tarea = {
+            nombre: nombre,
+            descripcion: descripcion,
+            estado: estado,
+            fecha: fecha
+        }
+
+        console.log(tarea)
+        guardar(tarea);
+    }
+
     return (
         <div className="Formulario">
             <h2>Crear nueva tarea</h2>
-            <form>
-                <input required type="text" placeholder="Nombre de la tarea" />
-                <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripcion de la tarea"></textarea>
+            <form onSubmit={handlerSubmit}>
+                <input required
+                    type="text"
+                    placeholder="Nombre de la tarea"
+                    onChange={(e) => setNombre(e.target.value)}
+                    value={nombre}
+                />
+
+                <textarea required
+                    name="descripcion"
+                    id="descripcion"
+                    cols="30"
+                    rows="10"
+                    placeholder="Descripcion de la tarea"
+                    onChange={(e) => setDescripcion(e.target.value)}
+                    value={descripcion}
+                ></textarea>
+
+                <select
+                    required
+                    onChange={ (e) => setEstado(e.target.value) }
+                    value={estado}
+                >
+                    <option>Estado de la tarea</option>
+                    <option value="0">Pendiente</option>
+                    <option value="1">En proceso</option>
+                    <option value="2">Finalizada</option>
+                </select>
+
                 <div className="botones">
-                    <input required type="date" name="" id="" />
+                    <input
+                        required
+                        type="date"
+                        onChange={(e) => setFecha(e.target.value)}
+                        value={fecha}
+                    />
                     <button type="submit">Crear</button>
                 </div>
             </form>

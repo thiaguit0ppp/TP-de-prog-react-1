@@ -28,6 +28,12 @@ export default function App(){
   const [tareas, setTareas] = useState(tareasIniciales);
   const [seccionCrear, setSeccionCrear] = useState(true);
 
+  const guardar = (newTarea) => {
+    let nuevasTareas = [...tareas];
+    nuevasTareas.push(newTarea);
+    setTareas(nuevasTareas);
+  }
+
   const cambiarSeccion = () => {
     setSeccionCrear(!seccionCrear);
   } 
@@ -36,7 +42,7 @@ export default function App(){
     <div className="App">
       <h1 style={{color:"#fff"}}>Filtros</h1>
       <SeccionBotones mostrar={seccionCrear} f={cambiarSeccion} />
-      {seccionCrear ? <Listado tareas = {tareas}/> : <Formulario />}
+      {seccionCrear ? <Listado tareas = {tareas}/> : <Formulario guardar={guardar}/>}
     </div>
   )
 }
