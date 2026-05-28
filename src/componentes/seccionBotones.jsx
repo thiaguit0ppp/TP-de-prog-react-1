@@ -4,28 +4,33 @@ export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
         <div className="SeccionBotones">
             <div className="Filtros">
                 <button onClick={() => filtro(0)}>
-                    <img src="/img/casa.png" alt="Casa" />
+                    <img src="../../public/casa.png" alt="Casa" />
                     Casa
                 </button>
 
                 <button onClick={() => filtro(2)}>
-                    <img src="/img/trabajo.png" alt="Trabajo" />
+                    <img src="../../public/trabajo.png" alt="Trabajo" />
                     Trabajo
                 </button>
 
                 <button onClick={() => filtro(1)}>
-                    <img src="/img/jardin.png" alt="Jardin" />
+                    <img src="../../public/jardin.png" alt="Jardin" />
                     Patio
                 </button>
 
+                <button onClick={() => filtro("todos")}>
+                    <img src="../../public/todas.png" alt="Todas" />
+                    Todas
+                </button>
+
                 <button onClick={() => ordenar("mayor")}>
-                    <img src="/img/ordenar.png" alt="Ordenar" />
-                    Ordenar por ID (Mayor)
+                    <img src="../../public/flechaArriba.png" alt="Ordenar" />
+                    Mas nuevo
                 </button>
 
                 <button onClick={() => ordenar("menor")}>
-                    <img src="/img/ordenar.png" alt="Ordenar" />
-                    Ordenar por ID (Menor)
+                    <img src="../../public/flechaAbajo.png" alt="Ordenar" />
+                    Mas viejo
                 </button>
             </div>
 
@@ -37,7 +42,7 @@ export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
 
                 <div className="Creacion">
                     <button onClick={f}>
-                        <img src="/img/crear.png" alt="Crear" />
+                        <img src="../../public/new.png" alt="Crear" />
                         Crear
                     </button>
                 </div>

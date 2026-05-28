@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-export default function Tareas({ nombre, descripcion, tipo, estadoInicial, id, modificarEstado }) {
+export default function Tareas({ nombre, descripcion, tipo, estadoInicial, fecha, id, modificarEstado }) {
     let [prioridad, setPrioridad] = useState(0);
     /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
     estadoInicial = parseInt(estadoInicial);
-    console.log("estado inicial parseado:", estadoInicial, " tipo: ", tipo);
     tipo = parseInt(tipo);
     
     const cambiarEstado = () => {
@@ -52,6 +51,15 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, id, m
         }
     }
 
+    const getDiasRestantes = () => {
+        console.log("fecha recibida en getDiasRestantes: ", fecha, " id: ", id);
+        const fechaActual = new Date();
+        const fechaTarea = new Date(fecha);
+        const diferencia = fechaTarea - fechaActual;
+        console.log("fecha actual: ", fechaActual, " fecha tarea: ", fechaTarea, " diferencia: ", diferencia);
+        const diasRestantes = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+        return diasRestantes > 0 ? `${diasRestantes} días` : "Fecha pasada"; 
+    }
     return (
         <div className="Tarea">
             <div className="TareaHeader">
@@ -70,7 +78,7 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, id, m
                         {getContenidoBoton("texto")}
                     </button>
                 </div>
-                <div className="Dias">3 dias</div>
+                <div className="Dias">{getDiasRestantes()}</div>
             </div>
         </div>
     )

@@ -12,21 +12,24 @@ const tareasIniciales = [
     descripcion: "Descripcion de la tarea 1",
     estado: 0,
     tipo: 0,
-    id: 1
+    id: 1,
+    fecha: "2024-06-30"
   },
   {
     nombre: "Tarea 2",
     descripcion: "Descripcion de la tarea 2",
     estado: 1,
     tipo: 1,
-    id: 2
+    id: 2,
+    fecha: "2024-07-05"
   },
   {
     nombre: "Tarea 3",
     descripcion: "Descripcion de la tarea 3",
     estado: 2,
     tipo: 2,
-    id: 3
+    id: 3,
+    fecha: "2024-07-10"
   }
 ];
 
@@ -73,7 +76,6 @@ export default function App(){
 
   const tareasFiltradas = tareas.filter(t => {
     if (filtroActivo === "todos") return true;
-    console.log("tarea tipo:", t.tipo, " filtroActivo: ", filtroActivo, " tipo filtroActivo: ", typeof filtroActivo);
     return t.tipo == Number(filtroActivo);
   });
 

@@ -9,17 +9,16 @@ export default function Formulario({cambiarSeccion, guardar}) {
 
     const handlerSubmit = (e) => {
         e.preventDefault();
-
+        
         let tarea = {
             nombre: nombre,
             descripcion: descripcion,
             estado: estado,
             tipo: tipo,
-            fecha: fecha,
+            fecha: new Date(fecha),
             id: (new Date()).getTime()
         }
 
-        console.log(tarea)
         guardar(tarea);
     }
 
