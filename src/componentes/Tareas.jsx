@@ -4,6 +4,7 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, id, m
     let [prioridad, setPrioridad] = useState(0);
     /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
     estadoInicial = parseInt(estadoInicial);
+    console.log("estado inicial parseado:", estadoInicial, " tipo: ", tipo);
     tipo = parseInt(tipo);
     
     const cambiarEstado = () => {

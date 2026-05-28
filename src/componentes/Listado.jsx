@@ -1,13 +1,13 @@
 import Tareas from "./Tareas";
 
 export default function Listado({ tareas, modificarEstado }) {
+    console.log("tareas en listado: ", tareas);
     return (
         <div className="Listado">
             {tareas.map(tarea => (
                 <>
-                    {console.log("tarea que renderizo: ",tarea.id)}
+                    {console.log("taredsadsdasdsaa que rendsadderizo: ",tarea.tipo)}
                     <Tareas
-                        key={tarea.id}
                         nombre={tarea.nombre}
                         descripcion={tarea.descripcion}
                         estadoInicial={parseInt(tarea.estado)}

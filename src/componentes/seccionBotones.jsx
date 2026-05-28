@@ -1,29 +1,41 @@
-export default function SeccionBotones({mostrar, f }){
+export default function SeccionBotones({mostrar, f, filtro}){
+
     return (
         <div className="SeccionBotones">
             <div className="Filtros">
-                <button>
+                <button onClick={() => filtro(0)}>
                     <img src="/img/casa.png" alt="Casa" />
-                    Casa</button>
-                <button>
+                    Casa
+                </button>
+
+                <button onClick={() => filtro(2)}>
                     <img src="/img/trabajo.png" alt="Trabajo" />
-                    Trabajo</button>
-                <button>
+                    Trabajo
+                </button>
+
+                <button onClick={() => filtro(1)}>
                     <img src="/img/jardin.png" alt="Jardin" />
-                    Patio</button>
-                <button onClick={!mostrar ? f : undefined}>
+                    Patio
+                </button>
+
+                <button onClick={() => filtro("todos")}>
                     <img src="/img/todos.png" alt="Todos" />
-                    Todos</button>
+                    Todos
+                </button>
             </div>
+
             {mostrar && <>
-                <div className="LineaSeparadora"
-                style={{width: '50%'}}
-            ></div>
-            <div className="Creacion">
-                <button onClick={f}>
-                    <img src="/img/crear.png" alt="Crear" />
-                    Crear</button>
-            </div>
+                <div 
+                    className="LineaSeparadora"
+                    style={{width: '50%'}}
+                ></div>
+
+                <div className="Creacion">
+                    <button onClick={f}>
+                        <img src="/img/crear.png" alt="Crear" />
+                        Crear
+                    </button>
+                </div>
             </>}
             
         </div>

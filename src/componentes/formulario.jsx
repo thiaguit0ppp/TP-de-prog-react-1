@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Formulario({ guardar }) {
+export default function Formulario({cambiarSeccion, guardar}) {
     const [nombre, setNombre] = useState("");
     const [estado, setEstado] = useState(0);
     const [descripcion, setDescripcion] = useState("");
@@ -25,7 +25,6 @@ export default function Formulario({ guardar }) {
 
     return (
         <div className="Formulario">
-            <h2>Crear nueva tarea</h2>
             <form onSubmit={handlerSubmit}>
                 <input required
                     type="text"
@@ -76,6 +75,7 @@ export default function Formulario({ guardar }) {
                         type="button"
                         className="cerrar"
                         style={{ backgroundColor: "#a83232", color: "#ffffff" }}
+                        onClick={cambiarSeccion}
                     >
                         Cerrar
                     </button>
