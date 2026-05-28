@@ -1,4 +1,4 @@
-export default function SeccionBotones({mostrar, f, filtro}){
+export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
 
     return (
         <div className="SeccionBotones">
@@ -18,9 +18,14 @@ export default function SeccionBotones({mostrar, f, filtro}){
                     Patio
                 </button>
 
-                <button onClick={() => filtro("todos")}>
-                    <img src="/img/todos.png" alt="Todos" />
-                    Todos
+                <button onClick={() => ordenar("mayor")}>
+                    <img src="/img/ordenar.png" alt="Ordenar" />
+                    Ordenar por ID (Mayor)
+                </button>
+
+                <button onClick={() => ordenar("menor")}>
+                    <img src="/img/ordenar.png" alt="Ordenar" />
+                    Ordenar por ID (Menor)
                 </button>
             </div>
 

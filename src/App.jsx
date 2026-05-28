@@ -56,7 +56,21 @@ export default function App(){
     setFiltroActivo(tipo);
   }
 
-  // 🔑 FILTRO DERIVADO (esto reemplaza tu lógica rota)
+  const ordernar = (direccion) => {
+    const ordenadas = [...tareas].sort((a, b) => {
+      if (direccion === "mayor") {
+        if (a.id < b.id) return -1;
+        if (a.id > b.id) return 1;
+        return 0;
+      } else {
+        if (a.id > b.id) return -1;
+        if (a.id < b.id) return 1;
+        return 0;
+      }
+    });
+    setTareas(ordenadas);
+  }
+
   const tareasFiltradas = tareas.filter(t => {
     if (filtroActivo === "todos") return true;
     console.log("tarea tipo:", t.tipo, " filtroActivo: ", filtroActivo, " tipo filtroActivo: ", typeof filtroActivo);
@@ -66,12 +80,12 @@ export default function App(){
   if(seccionCrear){
     return (
       <div className="App">
-        <h1 style={{color:"#fff"}}>Filtros</h1>
 
         <SeccionBotones 
           mostrar={seccionCrear} 
           f={cambiarSeccion} 
           filtro={filtrarTareas}
+          ordenar={ordernar}
         />
 
         <Listado 
