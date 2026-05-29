@@ -24,13 +24,13 @@ export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
                 </button>
 
                 <button onClick={() => ordenar("mayor")}>
-                    <img src="../../public/flechaArriba.png" alt="Ordenar" />
-                    Mas nuevo
+                    <img src="../../public/flechaAbajo.png" alt="Ordenar" />
+                    Mas viejo
                 </button>
 
                 <button onClick={() => ordenar("menor")}>
-                    <img src="../../public/flechaAbajo.png" alt="Ordenar" />
-                    Mas viejo
+                    <img src="../../public/flechaArriba.png" alt="Ordenar" />
+                    Mas nuevo
                 </button>
             </div>
 
