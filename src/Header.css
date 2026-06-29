@@ -1,0 +1,39 @@
+.Header {
+    display: flex;
+    gap: 1.5rem;              /* separación consistente */
+    padding: 1rem 2rem;
+    background-color: #111;   /* gris muy oscuro */
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.Opcion {
+    text-decoration: none;
+    color: #cfcfcf;           /* gris claro */
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+
+    transition: 
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Hover: mejora percepción de interactividad */
+.Opcion:hover {
+    color: #ffffff;
+    background-color: #2a2a2a;
+}
+
+/* Active (cuando clickeás) */
+.Opcion:active {
+    background-color: #3a3a3a;
+}
+
+/* Opcional: estado seleccionado (si lo implementás después) */
+.Opcion.active {
+    color: #fff;
+    background-color: #2f2f2f;
+}

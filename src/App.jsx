@@ -1,6 +1,12 @@
+import { Router, Route, Switch } from "wouter";
+
 import Listado from "./componentes/listado";
 import SeccionBotones from "./componentes/seccionBotones";
 import Formulario from "./componentes/Formulario";
+import Header from "./componentes/Header";
+import Home from "./componentes/Home";
+import NotFound from "./componentes/NotFound";
+import Footer from "./componentes/Footer";
 
 import React, { useState } from 'react';
 
@@ -78,6 +84,40 @@ export default function App(){
     if (filtroActivo === "todos") return true;
     return t.tipo == Number(filtroActivo);
   });
+
+  return(
+    <div className="App">
+      <Header />
+      <Router>
+        <Switch>
+          <Route path="/crear">
+            <Formulario cambiarSeccion={cambiarSeccion} guardar={guardar}/>
+          </Route>
+
+          <Route path="/tareas">
+            <SeccionBotones mostrar={seccionCrear} 
+              f={cambiarSeccion} 
+              filtro={filtrarTareas}
+              ordenar={ordernar}
+            />
+            <Listado 
+              tareas={tareasFiltradas} 
+              modificarEstado={cambiarEstado}
+            />
+          </Route>
+          
+          <Route path="/">
+            <Home />
+          </Route>
+
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </Router>
+      <Footer />
+    </div>
+  );
 
   if(seccionCrear){
     return (

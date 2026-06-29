@@ -1,0 +1,19 @@
+.Footer {
+    margin-top: 300px;              /* útil si usás layout flex vertical */
+    padding: 1rem 2rem;
+
+    background-color: #111;        /* mismo tono que header */
+    border-top: 1px solid #2a2a2a;
+
+    display: flex;
+    flex-wrap: wrap;               /* evita overflow en pantallas chicas */
+    gap: 1.5rem;
+
+    font-size: 0.9rem;
+    color: #bfbfbf;                /* gris medio para no competir con contenido */
+}
+
+.Footer p {
+    margin: 0;
+    opacity: 0.85;                 /* baja un poco el peso visual */
+}

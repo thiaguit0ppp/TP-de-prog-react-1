@@ -34,20 +34,18 @@ export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
                 </button>
             </div>
 
-            {mostrar && <>
+            
                 <div 
                     className="LineaSeparadora"
                     style={{width: '50%'}}
                 ></div>
 
-                <div className="Creacion">
+                {/* <div className="Creacion">
                     <button onClick={f}>
                         <img src="../../public/new.png" alt="Crear" />
                         Crear
                     </button>
-                </div>
-            </>}
-            
+                </div> */}
         </div>
     )
 }
