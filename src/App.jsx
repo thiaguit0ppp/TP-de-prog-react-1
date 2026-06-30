@@ -1,4 +1,5 @@
 import { Router, Route, Switch } from "wouter";
+import axios from "axios"
 
 import Listado from "./componentes/listado";
 import SeccionBotones from "./componentes/seccionBotones";
@@ -8,7 +9,7 @@ import Home from "./componentes/Home";
 import NotFound from "./componentes/NotFound";
 import Footer from "./componentes/Footer";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import "./App.css";
 
@@ -43,6 +44,18 @@ export default function App(){
   const [tareas, setTareas] = useState(tareasIniciales);
   const [seccionCrear, setSeccionCrear] = useState(true);
   const [filtroActivo, setFiltroActivo] = useState("todos");
+
+  useEffect(()=>{
+    const url = 'https://api-tareas.ctpoba.edu.ar/api'
+    axios
+    .get(url)
+      .then((resp)=>{
+        console.log(resp)
+      })
+    .catch((e)=>{
+      console.error(e);
+    })
+  }, [])
 
   const guardar = (newTarea) => {
     setTareas(prev => [...prev, newTarea]);

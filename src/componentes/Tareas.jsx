@@ -1,20 +1,18 @@
 import { useState } from "react";
 
-export default function Tareas({ nombre, descripcion, tipo, estadoInicial, fecha, id, modificarEstado }) {
-    let [prioridad, setPrioridad] = useState(0);
+export default function Tareas({ nombre, descripcion, tipo, estadoInicial, prioridad, id, modificarEstado }) {
+
     /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
     estadoInicial = parseInt(estadoInicial);
     tipo = parseInt(tipo);
-    
+    prioridad = parseInt(prioridad);
+
     const cambiarEstado = () => {
         let nuevoEstado = estadoInicial == 2 ? 0 : estadoInicial + 1;
-        console.log("nuevo estado;", nuevoEstado);
-        console.log("id e cambiar estado cuando la llamo ", id);
         modificarEstado(id, nuevoEstado);
     }
 
     const getContenidoBoton = (dato) => {
-        console.log("hola", dato, "+", estadoInicial)
         if (dato == "color") {
             switch (estadoInicial) {
                 case 0:
@@ -35,7 +33,6 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, fecha
                     return "Completada";
             }
         }
-        console.error("dato no reconocido:", dato, " estado: ", typeof estadoInicial, estadoInicial);
     }
 
     const getTipoTarea = () => {
@@ -51,15 +48,19 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, fecha
         }
     }
 
-    const getDiasRestantes = () => {
-        console.log("fecha recibida en getDiasRestantes: ", fecha, " id: ", id);
-        const fechaActual = new Date();
-        const fechaTarea = new Date(fecha);
-        const diferencia = fechaTarea - fechaActual;
-        console.log("fecha actual: ", fechaActual, " fecha tarea: ", fechaTarea, " diferencia: ", diferencia);
-        const diasRestantes = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
-        return diasRestantes > 0 ? `${diasRestantes} días` : "Fecha pasada"; 
+    const getPrioridad = () => {
+        switch (prioridad) {
+            case 1:
+                return "Alta";
+            case 2:
+                return "Media";
+            case 3:
+                return "Baja";
+            default:
+                return "Sin prioridad";
+        }
     }
+
     return (
         <div className="Tarea">
             <div className="TareaHeader">
@@ -78,7 +79,8 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, fecha
                         {getContenidoBoton("texto")}
                     </button>
                 </div>
-                <div className="Dias">{getDiasRestantes()}</div>
+
+                <div className="Dias">{getPrioridad()}</div>
             </div>
         </div>
     )

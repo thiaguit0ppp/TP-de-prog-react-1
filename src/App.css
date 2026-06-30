@@ -172,7 +172,7 @@ body{
     gap: 20px;
 }
 
-.Formulario > form > input, .Formulario > form > textarea,.Formulario > form > select, .botones > input{
+.Formulario > form > input, .Formulario > form > textarea,.Formulario > form > select, .botones > input, .botones > select{
     background-color: #585858;
     color: #C4C4C4;
     border: none;

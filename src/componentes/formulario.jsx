@@ -1,25 +1,37 @@
 import { useState } from "react";
+import axios from "axios";
 
-export default function Formulario({cambiarSeccion, guardar}) {
+export default function Formulario({ cambiarSeccion, guardar }) {
     const [nombre, setNombre] = useState("");
     const [estado, setEstado] = useState(0);
     const [descripcion, setDescripcion] = useState("");
     const [tipo, setTipo] = useState("");
-    const [fecha, setFecha] = useState("");
+    const [prioridad, setPrioridad] = useState("");
 
     const handlerSubmit = (e) => {
         e.preventDefault();
-        
+
         let tarea = {
             nombre: nombre,
             descripcion: descripcion,
             estado: estado,
-            tipo: tipo,
-            fecha: new Date(fecha),
-            id: (new Date()).getTime()
+            categoria: tipo,
+            prioridad: prioridad
         }
 
-        guardar(tarea);
+        const url = 'https://api-tareas.ctpoba.edu.ar/api/tareas'
+        const config = {
+            headers: { Authorization: '48354980' }
+        }
+
+        axios
+        .post(url, tarea, config)
+            .then((resp)=>{
+                console.log( resp.data)
+            })
+            .catch((e)=>{
+                console.log(e);
+            })
     }
 
     return (
@@ -63,12 +75,16 @@ export default function Formulario({cambiarSeccion, guardar}) {
                 </select>
 
                 <div className="botones">
-                    <input
+                    <select
                         required
-                        type="date"
-                        onChange={(e) => setFecha(e.target.value)}
-                        value={fecha}
-                    />
+                        onChange={(e) => setPrioridad(e.target.value)}
+                        value={prioridad}
+                    >
+                        <option value="">Seleccionar prioridad</option>
+                        <option value="1">Alta</option>
+                        <option value="2">Media</option>
+                        <option value="3">Baja</option>
+                    </select>
 
                     <button
                         type="button"
