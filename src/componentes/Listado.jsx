@@ -8,7 +8,7 @@ export default function Listado({ modificarEstado }) {
     const actualizar = () => {
         const url = 'https://api-tareas.ctpoba.edu.ar/api/tareas';
         const config = {
-            headers: { Authorization: "48354980"}
+            headers: { Authorization: "48354980" }
         };
 
         axios
@@ -16,7 +16,6 @@ export default function Listado({ modificarEstado }) {
         .then((resp)=>{
             console.log(resp.data.tareas);
             setTareas(resp.data.tareas)
-
         })
         .catch((e)=>{
             console.error(e);
@@ -38,6 +37,7 @@ export default function Listado({ modificarEstado }) {
                     estadoInicial={parseInt(tarea.estado)}
                     tipo={tarea.categoria}
                     prioridad={tarea.prioridad}
+                    id = {tarea.id}
                     modificarEstado={modificarEstado}
                 />
             ))}

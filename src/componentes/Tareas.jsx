@@ -1,20 +1,47 @@
 import { useState } from "react";
+import axios from "axios";
 
-export default function Tareas({ nombre, descripcion, tipo, estadoInicial, prioridad, id, modificarEstado }) {
-
+export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, prioridad, modificarEstado }) {
+    const [estado, setEstado] = useState(estadoInicial);
     /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
     estadoInicial = parseInt(estadoInicial);
     tipo = parseInt(tipo);
-    prioridad = parseInt(prioridad);
+    prioridad = parseInt(prioridad);        
+
+    const updateEstado = (nuevoEstado) =>{
+        const url = `https://api-tareas.ctpoba.edu.ar/api/tareas/estado/${id}`;
+        const config = {
+            headers: { Authorization: '48354980' }
+        }
+        
+        const tarea = {
+            nombre: nombre,
+            descripcion: descripcion,
+            estado: nuevoEstado,
+            tipo: tipo,
+            prioridad: prioridad
+        }
+
+        axios.put(url, tarea, config)
+        .then((resp)=>{
+            console.log(resp)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
 
     const cambiarEstado = () => {
-        let nuevoEstado = estadoInicial == 2 ? 0 : estadoInicial + 1;
-        modificarEstado(id, nuevoEstado);
+        let nuevoEstado = estado == 2 ? 0 : estado + 1;
+        console.log(nuevoEstado)
+        setEstado(nuevoEstado);
+        updateEstado(nuevoEstado);
     }
 
     const getContenidoBoton = (dato) => {
+        console.log("dato:"+dato);
         if (dato == "color") {
-            switch (estadoInicial) {
+            switch (estado) {
                 case 0:
                     return "white";
                 case 1:
@@ -24,7 +51,7 @@ export default function Tareas({ nombre, descripcion, tipo, estadoInicial, prior
             }
         }
         if (dato == "texto") {
-            switch (estadoInicial) {
+            switch (estado) {
                 case 0:
                     return "Pendiente";
                 case 1:
