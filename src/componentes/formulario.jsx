@@ -57,7 +57,7 @@ export default function Formulario({ guardar }) {
                     onChange={(e) => setEstado(e.target.value)}
                     value={estado}
                 >
-                    <option>Estado de la tarea</option>
+                    <option value="">Estado de la tarea</option>
                     <option value="0">Pendiente</option>
                     <option value="1">En proceso</option>
                     <option value="2">Finalizada</option>
@@ -68,7 +68,7 @@ export default function Formulario({ guardar }) {
                     onChange={(e) => setTipo(e.target.value)}
                     value={tipo}
                 >
-                    <option>Seleccionar tipo</option>
+                    <option value="">Seleccionar tipo</option>
                     <option value="0">Casa</option>
                     <option value="1">Patio</option>
                     <option value="2">Trabajo</option>

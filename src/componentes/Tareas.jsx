@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, prioridad }) {
+export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, prioridad, eliminar }) {
     const [estado, setEstado] = useState(estadoInicial);
     /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
     estadoInicial = parseInt(estadoInicial);
@@ -106,6 +106,10 @@ export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, pr
 
                 <div className="Dias">{getPrioridad()}</div>
             </div>
+
+            <button className="BotonEliminar" onClick={() => eliminar(id)}>
+                Eliminar tarea
+            </button>
         </div>
     )
 }

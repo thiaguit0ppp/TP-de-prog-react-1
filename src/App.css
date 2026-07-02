@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,13 +7,13 @@ body{
     background-color: #1e1e1e;
 }
 
-.App{
+.App {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.SeccionBotones{
+.SeccionBotones {
     display: flex;
     gap: 20px;
     padding: 20px;
@@ -21,12 +21,13 @@ body{
     flex-direction: column;
 }
 
-.Filtros{
+.Filtros {
     display: flex;
     gap: 10px;
 }
 
-.Filtros > button, .Creacion > button{
+.Filtros>button,
+.Creacion>button {
     display: flex;
     gap: 10px;
 
@@ -39,21 +40,22 @@ body{
     font-size: 24px;
 }
 
-.Filtros > button > img, .Creacion > button > img{
+.Filtros>button>img,
+.Creacion>button>img {
     width: 30px;
     height: 30px;
 }
 
-.Listado{
+.Listado {
     display: flex;
     gap: 20px;
     padding: 20px;
     flex-wrap: wrap;
 
-    flex:1;
+    flex: 1;
 }
 
-.Tarea{
+.Tarea {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -64,36 +66,36 @@ body{
     width: 300px;
 }
 
-.TareaHeader{
+.TareaHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.Tarea > textarea{
+.Tarea>textarea {
     padding: 0px 10px;
 }
 
-.Tarea > h2{
+.Tarea>h2 {
     font-size: 30px;
     font-weight: bold;
     padding: 0px 5px;
     color: #06C4E2;
 }
 
-.TareaHeader > h2{
+.TareaHeader>h2 {
     font-size: 30px;
     font-weight: bold;
     padding: 0px 5px;
     color: #06C4E2;
 }
 
-.TipoTarea{
+.TipoTarea {
     font-size: 14px;
     font-weight: bold;
 }
 
-.Tarea > textarea{
+.Tarea>textarea {
     background-color: transparent;
     color: #fff;
     border: none;
@@ -102,13 +104,13 @@ body{
     resize: none;
 }
 
-.LineaSeparadora{
+.LineaSeparadora {
     height: 10px;
     background-color: #5D5D5D;
     border-radius: 10px;
 }
 
-.TareaPie{
+.TareaPie {
     padding: 20px 10px;
     flex: 1;
     display: flex;
@@ -116,20 +118,20 @@ body{
     flex-direction: row;
 }
 
-.EstadoTarea{
+.EstadoTarea {
     display: flex;
     gap: 5px;
     align-items: center;
 }
 
-.EstadoTarea > .Punto{
+.EstadoTarea>.Punto {
     background-color: white;
     border-radius: 50%;
     width: 25px;
     height: 25px;
 }
 
-.EstadoTarea > button{
+.EstadoTarea>button {
     all: unset;
     display: flex;
     gap: 10px;
@@ -141,7 +143,7 @@ body{
     font-weight: bold;
 }
 
-.Dias{
+.Dias {
     display: flex;
     align-items: center;
 
@@ -153,7 +155,24 @@ body{
     padding: 5px 20px;
 }
 
-.Formulario{
+.BotonEliminar {
+    width: 100%;
+    padding: 12px;
+    background-color: #b00020;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.BotonEliminar {
+    background-color: #d32f2f;
+}
+
+.Formulario {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -161,18 +180,22 @@ body{
     border-radius: 10px;
     margin: 20px;
     width: 400px;
-    
+
     color: white;
     background-color: #393838;
 }
 
-.Formulario > form{
+.Formulario>form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.Formulario > form > input, .Formulario > form > textarea,.Formulario > form > select, .botones > input, .botones > select{
+.Formulario>form>input,
+.Formulario>form>textarea,
+.Formulario>form>select,
+.botones>input,
+.botones>select {
     background-color: #585858;
     color: #C4C4C4;
     border: none;
@@ -181,13 +204,13 @@ body{
     padding: 10px;
 }
 
-.botones{
+.botones {
     display: flex;
     gap: 10px;
     justify-content: space-between;
 }
 
-.botones > button{
+.botones>button {
     all: unset;
 
     border-radius: 5px;
@@ -200,7 +223,7 @@ body{
 }
 
 /* ESTILO BOTÓN CERRAR */
-.cerrar{
+.cerrar {
     background-color: #a83232;
     color: #fff;
 }

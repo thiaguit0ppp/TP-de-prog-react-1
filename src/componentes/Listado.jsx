@@ -14,32 +14,69 @@ export default function Listado({ filtro, orden }) {
         let multipleQuery = false;
         let query = '';
         if(filtro!='todos'){
-            query += `?categoria=${filtro}`
-            multipleQuery = true;
+            query = `?categoria=${filtro}`
         }
-        if(orden!='default'){
-            query += multipleQuery ? `&?orden=${orden}` : `?orden=${orden}`;
-        }
+        
         url = url + query;
-        console.log("url:"+url, "filtro:"+filtro, "orden:"+orden);
+        console.log("url:"+url, "filtro:"+filtro);
         
         axios
         .get(url, config)
         .then((resp)=>{
             console.log(resp.data.tareas);
-            setTareas(resp.data.tareas)
+            let tareasFiltradas = ordenarTareas(resp.data.tareas, orden);
+            console.log("Tareas filtradas: ", tareasFiltradas);
+            setTareas(tareasFiltradas);
         })
         .catch((e)=>{
             console.error(e);
         })
     }
 
+    const eliminar = (id) => {
+        const url = `https://api-tareas.ctpoba.edu.ar/api/tareas/${id}`;
+        const config = {
+            headers: { Authorization: "48354980" }
+        };
+
+        axios
+        .delete(url, config)
+        .then((resp)=>{
+            console.log(resp);
+            let tareasActualizadas = tareas.filter(tarea => tarea.id !== id);
+            setTareas(tareasActualizadas);
+        })
+        .catch((e)=>{
+            console.error(e);
+        })
+    }
+
+    const ordenarTareas = (tareas, orden) => {
+        if(orden == 'default'){
+            return tareas;  
+        }
+        if(orden == 'ASC'){
+            return [...tareas].sort((a, b) => a.prioridad - b.prioridad);
+        }
+        if(orden == 'DESC'){
+            return [...tareas].sort((a, b) => b.prioridad - a.prioridad);
+        }
+    }
+
     useEffect(()=>{
         console.log("Se solicitan tareas:")
         actualizar();
+        console.log("Se solicitan tareas con filtro: "+filtro+" y orden: "+orden);
         console.log(tareas);
     }
-    ,[filtro, orden])
+    ,[filtro])
+
+    useEffect(()=>{
+        console.log("Se ordenan tareas: "+orden);
+        let tareasOrdenadas = ordenarTareas(tareas, orden);
+        setTareas(tareasOrdenadas);
+    }
+    ,[orden])
 
     return (
         <div className="Listado">
@@ -52,6 +89,7 @@ export default function Listado({ filtro, orden }) {
                     estadoInicial={parseInt(tarea.estado)}
                     tipo={tarea.categoria}
                     prioridad={tarea.prioridad}
+                    eliminar={eliminar}
                 />
             ))}
         </div>
