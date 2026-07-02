@@ -1,4 +1,4 @@
-export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
+export default function SeccionBotones({mostrar, filtro, ordenar}) {
 
     return (
         <div className="SeccionBotones">
@@ -23,14 +23,14 @@ export default function SeccionBotones({mostrar, f, filtro, ordenar}) {
                     Todas
                 </button>
 
-                <button onClick={() => ordenar("mayor")}>
+                <button onClick={() => ordenar("DESC")}>
                     <img src="../../flechaAbajo.png" alt="Ordenar" />
-                    Mas viejo
+                    Menos importantes
                 </button>
 
-                <button onClick={() => ordenar("menor")}>
+                <button onClick={() => ordenar("ASC")}>
                     <img src="../../flechaArriba.png" alt="Ordenar" />
-                    Mas nuevo
+                    Mas importantes
                 </button>
             </div>
 

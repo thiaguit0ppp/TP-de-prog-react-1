@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Formulario({ cambiarSeccion, guardar }) {
+export default function Formulario({ guardar }) {
     const [nombre, setNombre] = useState("");
     const [estado, setEstado] = useState(0);
     const [descripcion, setDescripcion] = useState("");
@@ -90,7 +90,7 @@ export default function Formulario({ cambiarSeccion, guardar }) {
                         type="button"
                         className="cerrar"
                         style={{ backgroundColor: "#a83232", color: "#ffffff" }}
-                        onClick={cambiarSeccion}
+                        //onClick={cambiarSeccion}
                     >
                         Cerrar
                     </button>

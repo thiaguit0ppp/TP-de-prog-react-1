@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, prioridad, modificarEstado }) {
+export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, prioridad }) {
     const [estado, setEstado] = useState(estadoInicial);
     /*CON ESTE PARCER FUNCIOMNA Y NS PQ AYUDAAAAAAAA */
     estadoInicial = parseInt(estadoInicial);
@@ -13,7 +13,6 @@ export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, pr
         const config = {
             headers: { Authorization: '48354980' }
         }
-        
         const tarea = {
             nombre: nombre,
             descripcion: descripcion,
@@ -33,13 +32,11 @@ export default function Tareas({ nombre, descripcion, tipo, id,estadoInicial, pr
 
     const cambiarEstado = () => {
         let nuevoEstado = estado == 2 ? 0 : estado + 1;
-        console.log(nuevoEstado)
         setEstado(nuevoEstado);
         updateEstado(nuevoEstado);
     }
 
     const getContenidoBoton = (dato) => {
-        console.log("dato:"+dato);
         if (dato == "color") {
             switch (estado) {
                 case 0:

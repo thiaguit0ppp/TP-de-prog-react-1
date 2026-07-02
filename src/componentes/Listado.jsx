@@ -2,15 +2,27 @@ import Tareas from "./Tareas";
 import axios from "axios";
 import { useState, useEffect } from "react"
 
-export default function Listado({ modificarEstado }) {
+export default function Listado({ filtro, orden }) {
     const [tareas, setTareas] = useState([]);
 
     const actualizar = () => {
-        const url = 'https://api-tareas.ctpoba.edu.ar/api/tareas';
+        let url = 'https://api-tareas.ctpoba.edu.ar/api/tareas';
         const config = {
             headers: { Authorization: "48354980" }
         };
-
+        
+        let multipleQuery = false;
+        let query = '';
+        if(filtro!='todos'){
+            query += `?categoria=${filtro}`
+            multipleQuery = true;
+        }
+        if(orden!='default'){
+            query += multipleQuery ? `&?orden=${orden}` : `?orden=${orden}`;
+        }
+        url = url + query;
+        console.log("url:"+url, "filtro:"+filtro, "orden:"+orden);
+        
         axios
         .get(url, config)
         .then((resp)=>{
@@ -27,18 +39,19 @@ export default function Listado({ modificarEstado }) {
         actualizar();
         console.log(tareas);
     }
-    ,[])
+    ,[filtro, orden])
+
     return (
         <div className="Listado">
             {tareas.map(tarea => (
                 <Tareas
+                    key={tarea.id}
+                    id={tarea.id}
                     nombre={tarea.nombre}
                     descripcion={tarea.descripcion}
                     estadoInicial={parseInt(tarea.estado)}
                     tipo={tarea.categoria}
                     prioridad={tarea.prioridad}
-                    id = {tarea.id}
-                    modificarEstado={modificarEstado}
                 />
             ))}
         </div>
